@@ -1,4 +1,6 @@
 brooklyn.catalog:
+  id: kibana-standalone
+  itemType: template
   version: 0.0.2
   iconUrl: http://blog.arungupta.me/wp-content/uploads/2015/07/kibana-logo.png
   publish:
@@ -6,13 +8,13 @@ brooklyn.catalog:
     license_code: Apache-2.0
     overview: README.md
     reference: catalog/reference.json
-  items:
-  - id: kibana-standalone
-    name: "Kibana server"
-    description: |
-       Single Kibana server. Callers should configure 'kibana.elasticsearch.ip'
-    item:
-      type: org.apache.brooklyn.entity.software.base.VanillaSoftwareProcess
+  name: "Kibana server"
+  description: |
+     Single Kibana server. Callers should configure 'kibana.elasticsearch.ip'
+  item:
+    services:
+    - type: org.apache.brooklyn.entity.software.base.VanillaSoftwareProcess
+      name: "Kibana server"
       provisioning.properties:
         osFamily: ubuntu
 
